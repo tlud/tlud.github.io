@@ -12,15 +12,15 @@
     
     
     <item>
-      <title>mutable と immutable</title>
+      <title>1.mutable と immutable</title>
       <link>https://tlud.github.io/posts/1/</link>
       <pubDate>Sat, 18 Jul 2020 17:04:44 +0900</pubDate>
       
       <guid>https://tlud.github.io/posts/1/</guid>
-      <description>mutable &amp;raquo; 鉛筆で書く(書き直したくなったら、消しゴムで消して書き直す)
-immutable &amp;raquo; ボールペンで書く(書き直したくなったら、新しい紙に書き直す)
-みたいなイメージ
-これをプログラミングの言葉を使って言い換えると
+      <description>#超雑なイメージ
+mutable &amp;raquo; 鉛筆(消して書き直し可能)
+immutable &amp;raquo; ボールペン(新しい紙に書き直す)
+#少しプログラミングっぽく
 mutable &amp;raquo; 変数の中身を書き直し可能 新しいオブジェクト不必要
 immutable &amp;raquo; 変数の中身を書き直し不可能 新しいオブジェクト必要</description>
     </item>
