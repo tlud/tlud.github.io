@@ -5,7 +5,7 @@
     <link>https://tlud.github.io/posts/</link>
     <description>Recent content in Posts on せかんどぶれいん</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ja-jp</language>
     <lastBuildDate>Sat, 18 Jul 2020 17:04:44 +0900</lastBuildDate>
     
 	<atom:link href="https://tlud.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -17,11 +17,9 @@
       <pubDate>Sat, 18 Jul 2020 17:04:44 +0900</pubDate>
       
       <guid>https://tlud.github.io/posts/1/</guid>
-      <description>#超雑なイメージ
-mutable &amp;raquo; 鉛筆(消して書き直し可能)
+      <description>超雑なイメージ mutable &amp;raquo; 鉛筆(消して書き直し可能)
 immutable &amp;raquo; ボールペン(新しい紙に書き直す)
-#少しプログラミングっぽく
-mutable &amp;raquo; 変数の中身を書き直し可能 新しいオブジェクト不必要
+少しプログラミングっぽく mutable &amp;raquo; 変数の中身を書き直し可能 新しいオブジェクト不必要
 immutable &amp;raquo; 変数の中身を書き直し不可能 新しいオブジェクト必要</description>
     </item>
     
