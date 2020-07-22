@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>#1. mutable と immutable()</title>
+      <title>#1. mutable と immutable(pythonコード)</title>
       <link>https://tlud.github.io/posts/1/</link>
       <pubDate>Sat, 18 Jul 2020 17:04:44 +0900</pubDate>
       
       <guid>https://tlud.github.io/posts/1/</guid>
-      <description>参照コピー・浅いコピー・深いコピーについて調べていると知らないことに出会ったのでメモ。 超雑なイメージ mutable &amp;raquo; 鉛筆(消して書き直し可能) immutable &amp;raquo; ボール</description>
+      <description>参照コピー・浅いコピー・深いコピーについて調べていると知らないことに出会ったのでメモ。 イメージ mutable &amp;raquo; オブジェクトの中身を変更可能(鉛筆, 消して</description>
     </item>
     
   </channel>

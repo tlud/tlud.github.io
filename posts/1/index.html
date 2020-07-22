@@ -4,19 +4,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>#1. mutable と immutable() - せかんどぶれいん</title>
+	<title>#1. mutable と immutable(pythonコード) - せかんどぶれいん</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-		<meta property="og:title" content="#1. mutable と immutable()" />
-<meta property="og:description" content="参照コピー・浅いコピー・深いコピーについて調べていると知らないことに出会ったのでメモ。 超雑なイメージ mutable &raquo; 鉛筆(消して書き直し可能) immutable &raquo; ボール" />
+		<meta property="og:title" content="#1. mutable と immutable(pythonコード)" />
+<meta property="og:description" content="参照コピー・浅いコピー・深いコピーについて調べていると知らないことに出会ったのでメモ。 イメージ mutable &raquo; オブジェクトの中身を変更可能(鉛筆, 消して" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tlud.github.io/posts/1/" />
 <meta property="article:published_time" content="2020-07-18T17:04:44+09:00" />
 <meta property="article:modified_time" content="2020-07-18T17:04:44+09:00" />
 
 		<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="#1. mutable と immutable()"/>
-<meta name="twitter:description" content="参照コピー・浅いコピー・深いコピーについて調べていると知らないことに出会ったのでメモ。 超雑なイメージ mutable &raquo; 鉛筆(消して書き直し可能) immutable &raquo; ボール"/>
+<meta name="twitter:title" content="#1. mutable と immutable(pythonコード)"/>
+<meta name="twitter:description" content="参照コピー・浅いコピー・深いコピーについて調べていると知らないことに出会ったのでメモ。 イメージ mutable &raquo; オブジェクトの中身を変更可能(鉛筆, 消して"/>
 
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -48,23 +48,83 @@
 <main class="main" role="main">
 	<article class="post">
 		<header class="post__header">
-			<h1 class="post__title">#1. mutable と immutable()</h1>
+			<h1 class="post__title">#1. mutable と immutable(pythonコード)</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
 	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-07-18T17:04:44&#43;09:00">July 18, 2020</time></div></div>
 		</header><div class="content post__content clearfix">
-			<p>参照コピー・浅いコピー・深いコピーについて調べていると知らないことに出会ったのでメモ。</p>
-<h3 id="超雑なイメージ">超雑なイメージ</h3>
+			<p>参照コピー・浅いコピー・深いコピーについて調べていると知らないことに出会ったのでメモ。<br>
+　  　
+　</p>
+<h3 id="イメージ">イメージ</h3>
 <ul>
-<li>mutable   &raquo; 鉛筆(消して書き直し可能)</li>
-<li>immutable &raquo; ボールペン(新しい紙に書き直す)</li>
+<li>mutable   &raquo; オブジェクトの中身を変更可能(鉛筆, 消して書き直し可能)</li>
+<li>immutable &raquo; 中身の変更不可,新しいオブジェクト必要(ボールペン, 新しい紙に書き直す)<br>
+　</li>
 </ul>
 <hr>
-<h3 id="少しプログラミングっぽく">少しプログラミングっぽく</h3>
+<h3 id="実際に確認">実際に確認</h3>
 <ul>
-<li>mutable   &raquo; オブジェクトの中身を変更可能</li>
-<li>immutable &raquo; 中身の変更不可,新しいオブジェクト必要</li>
+<li>immutable</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e">#primitiveはimmutable</span>
+a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abc&#34;</span>
+
+adrs_a <span style="color:#f92672">=</span> id(a)
+adrs_b <span style="color:#f92672">=</span> id(b)
+
+a <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+b <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;def&#34;</span>
+
+<span style="color:#66d9ef">print</span>(adrs_a <span style="color:#f92672">==</span> id(a))
+<span style="color:#66d9ef">print</span>(adrs_b <span style="color:#f92672">==</span> id(b))
+
+<span style="color:#75715e">#tupleもimmutable</span>
+c <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+adrs_c <span style="color:#f92672">=</span> id(c)
+
+<span style="color:#75715e"># c[0] = 0 ...immutableなので要素のみの変更は不可(error)</span>
+c <span style="color:#f92672">=</span> (<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">print</span>(adrs_c <span style="color:#f92672">==</span> id(c))
+</code></pre></div><p><code>出力</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">False
+False
+False
+</code></pre></div><p>&gt;&gt; いずれも新しいオブジェクトが生成されるため、アドレスが異なっている。<br>
+　</p>
+<hr>
+<ul>
+<li>mutable</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#75715e"># list, set, dictはmutable</span>
+a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+b <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;a&#39;</span>: <span style="color:#ae81ff">10</span>, <span style="color:#e6db74">&#39;b&#39;</span>: <span style="color:#ae81ff">20</span>}
+
+adrs_a <span style="color:#f92672">=</span> id(a)
+adrs_b <span style="color:#f92672">=</span> id(b)
+
+a[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+b[<span style="color:#e6db74">&#39;c&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
+
+<span style="color:#66d9ef">print</span>(adrs_a <span style="color:#f92672">==</span> id(a))
+<span style="color:#66d9ef">print</span>(adrs_b <span style="color:#f92672">==</span> id(b))
+
+<span style="color:#75715e"># 再定義はオブジェクトの置き換え</span>
+a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#66d9ef">print</span>(adrs_a <span style="color:#f92672">==</span> id(a))
+</code></pre></div><p><code>出力</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py">True
+True
+
+False
+</code></pre></div><p>&gt;&gt; 要素の書き換えはオブジェクトの置き換え必要なし<br>
+　</p>
+<hr>
+<h3 id="一言">一言</h3>
+<p>Markdownに慣れてきました。ぐっどばーい。。。</p>
 
 		</div>
 		<footer class="post__footer">
@@ -120,7 +180,7 @@
 	<h4 class="widget__title">Recent Posts</h4>
 	<div class="widget__content">
 		<ul class="widget__list">
-			<li class="widget__item"><a class="widget__link" href="/posts/1/">#1. mutable と immutable()</a></li>
+			<li class="widget__item"><a class="widget__link" href="/posts/1/">#1. mutable と immutable(pythonコード)</a></li>
 			<li class="widget__item"><a class="widget__link" href="/posts/0/">#0. ブログできまひた</a></li>
 		</ul>
 	</div>
